@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+<link rel="stylesheet" href="C://xampp/htdocs/indexhtml/technical-documentation-page/deneme2.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="C://xampp/htdocs/indexhtml/technical-documentation-page/script_1.js"></script>
+	</head>
+	
+	<body>
+		<div class="sidebar bar-block card animation tab-menu" style="display:none" id="mySidebar">
+<button class="bar-item nav-button nav-large" onclick="closeNav()" style="text-align:right; font-size:30px!important;">&times;</button>
+	<ul class="mainList">
+		<li><a href="#about_jquery" class="bar-item nav-button">About jQuery</a></li>
+					
+		<li><a href="#how_jquery_works" class="bar-item nav-button">How jQuery Works</a></li>
+				
+		<li><a href="#use_use" class="bar-item nav-button">$ vs $()</a></li>
+	
+		<li><a href="#document_ready" class="bar-item nav-button">$(document).ready()</a></li>
+	
+		<li><a href="#avoid_conflict" class="bar-item nav-button">Avoiding Conflicts With Other Libraries</a></li>
+	
+	</ul>
+	</div>
+		
+		
+		<div id="main">
+			<div class="nav-head">
+				<button id="navLink" class="nav-button nav-head nav-xlarge" onclick="openNav()">&#9776;</button>
+				<div class="container">
+	<img src="https://cdn-images-1.medium.com/max/1600/0*g3ns8QALNBBH7CBA." class="img">
+				</div>
+			</div>
+			
+			<div id="about_jquery" class="tab-content">
+	<h2>About jQuery</h2>
+		<p>Getting started with jQuery can be easy or 
+		challenging, depending on your experience with 
+		JavaScript, HTML, CSS, and programming concepts 
+		in general. In addition to these articles, you 
+		can read about the <a href="https://jquery.org/history/" target="_blank" class="links">history of jQuery</a>
+		and the <a href="https://jquery.org/license/" target="_blank" class="links">licensing terms</a> that apply 
+		to jQuery projects. You can also <a href="https://js.foundation/about/donate" target="_blank" class="links">make a donation</a>
+		to help the <a href="https://jquery.org/team/" target="_blank" class="links">jQuery team</a> continue to improve jQuery.</p>
+
+		<p>One important thing to know is that jQuery is 
+		just a <span style="font-weight:bold;">JavaScript library</span>. All the power of 
+		jQuery is accessed via JavaScript, so having a 
+		strong grasp of JavaScript is essential for understanding, structuring, 
+		and debugging your code. While working with jQuery regularly can, over time, 
+		improve your proficiency with JavaScript, it can be hard to get started 
+		writing jQuery without a working knowledge of JavaScript's built-in 
+		constructs and syntax. Therefore, if you're new to JavaScript, we 
+		recommend checking out the <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics" target="_blank" class="links">JavaScript basics tutorial</a>
+		on the Mozilla Developer Network (MDN).
+		</p>
+	</div>
+		
+
+<div id="how_jquery_works" class="tab-content">
+	<h2>How jQuery Works</h2>
+	<p>This is a basic tutorial, designed to 
+	help you get started using jQuery. If you don't 
+	have a test page setup yet, start by creating the 
+	following HTML page:</p>
+	
+<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="doctype"><span>&lt;</span>!doctype html></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>></span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>></span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">title</span>></span>Demo<span class="tag">&lt;<span class="title">/title</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/head</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>></span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://jquery.com/"</span>></span>jQuery<span class="tag">&lt;<span class="title">/a</span>></span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>></span><span class="javascript"></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>></span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"<code><span class="comment">// Your code goes here</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/body</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/html</span>></span></code></div></div></pre></td></tr></tbody></table></div>
+	<p>The <code>src</code> attribute in the 
+	<code><span class="tag">&lt;</span>script></code> 
+	element must point to a copy of jQuery. 
+	Download a copy of jQuery from the 
+	<a href="http://jquery.com/download/" target="_blank" class="links">Downloading jQuery</a> 
+	page and store the  <code>jquery.js</code> file in the same 
+	directory as your HTML file.</p>
+
+	<p class="quote"><span style="font-weight:bold;">Note:</span> When you download jQuery, the file 
+	name may contain a version number, e.g., <code>jquery-x.y.z.js</code>. 
+	Make sure to either rename this file to <code>jquery.js</code> 
+	or update the <code>src</code> attribute of the <code><span>&lt;</span>script></code> element to match the file name.</p>
+		
+		<h3>Launching Code on Document Ready</h3>
+		<p>To ensure that their code runs after the browser finishes loading the document, many JavaScript 
+		programmers wrap their code in an <code>onload</code> function:</p>		
+
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code>window.onload = <span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>alert(<span class="string"> "welcome" </span>);</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>};</code></div></div></pre></td></tr></tbody></table></div>
+		
+	<p>Unfortunately, the code doesn't run until all 
+	images are finished downloading, including banner 
+	ads. To run code as soon as the document is ready 
+	to be manipulated, jQuery has a statement known 
+	as the <a href="http://api.jquery.com/ready/" target="_blank" class="links">ready event</a>:</p>
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code>$( document ).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Your code here.</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre></td></tr></tbody></table></div>	
+
+<p class="quote"><span style="font-weight:bold;">Note:</span> The 
+jQuery library exposes its methods and properties via 
+two properties of the <code>window</code> object called <code>jQuery</code> and 
+<code>$</code>. <code>$</code> is simply an alias for <code>jQuery</code> and it's often 
+employed because it's shorter and faster to write.</p>
+<p>For example, inside the <code>ready</code> event, you can 
+add a click handler to the link:</p>
+	
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code>$(document).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>   $(<span class="string">"a"</span>).click(<span class="keyword">function</span>(event){</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>     alert(<span class="string">"Thanks for visiting"</span>);</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>   });</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre></td></tr></tbody></table></div>	
+	
+<p>Copy the above jQuery code into your HTML file
+ where it says <code>// Your code goes here</code>. Then, 
+ save your HTML file and reload the test page in your 
+ browser. Clicking the link should now first display 
+ an alert pop-up, then continue with the default 
+ behavior of navigating to <a href="http://jquery.com/" class="links" target="_blank">http://jquery.com</a>.</p>
+	
+<p>For <code>click</code> and most other <a href="http://api.jquery.com/category/events/" class="links" target="_blank">events</a>, 
+you can prevent the default behavior by calling 
+<code>event.preventDefault()</code> in the event handler:</p>
+	
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code>$(document).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>   $(<span class="string">"a"</span>).click(<span class="keyword">function</span>(event){ </code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>     alert(<span class="string">"As you can see, the link no longer took you to jquery.com"</span>);</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>     event.preventDefault();</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>     });</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre></td></tr></tbody></table></div>
+
+<p>Try replacing your first snippet of jQuery code, 
+which you previously copied in to your HTML file, 
+with the one above. Save the HTML file again and 
+reload to try it out.</p>
+	<h3>Complete Example</h3>
+<p>The following example illustrates the click handling
+ code discussed above, embedded directly in the HTML
+ <code><span class="tag">&lt;</span>body></code>. Note that 
+ in practice, it is usually better to place your code
+ in a separate JS file and load it on the page with a
+ <code><span class="tag">&lt;</span>script></code> element's <code>src</code> attribute.</p>
+	
+<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="doctype"><span class="tag">&lt;</span>!doctype html></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>></span></code></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">title</span>></span>Demo<span class="tag">&lt;<span class="title">/title</span>></span></code></div></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/head</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://jquery.com"</span>></span>jQuery<span class="tag">&lt;<span class="title">/a</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>   $(document).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>     $(<span class="string">"a"</span>).click(<span class="keyword">function</span>( event ){</code></div></div><div class="container"><div class="line"><code>       alert(<span class="string">"The link will no longer take you to jquery.com"</span>);</code></div></div><div class="container"><div class="line"><code>       event.preventDefault();</code></div></div><div class="container"><div class="line"><code>      )};</code></div></div><div class="container"><div class="line"><code>  )};</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>	<span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/body</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/html</span>></span></code></div></div></pre></td></tr></tbody></table></div>	
+	</div>
+	
+	<div id="use_use" class="tab-content">
+		<h2>$ vs $()</h2>
+		<p>Until now, we've been dealing entirely with 
+		methods that are called on a jQuery object. For 
+		example:</p>
+	
+	<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line">$(<span class="string">"h1"</span>).remove();</div></div></pre></td></tr></tbody></table></div>
+	
+	<p>Most jQuery methods are called on jQuery objects
+	as shown above; these methods are said to be part
+	of the <code>$.fn</code> namespace, or the "jQuery prototype,
+	" and are best thought of as jQuery object methods.</p>
+	
+	<p>However, there are several methods that do not 
+	act on a selection; these methods are said to be 
+	part of the jQuery namespace, and are best thought 
+	of as core jQuery methods.</p>
+	
+	<p>This distinction can be incredibly confusing to 
+	new jQuery users. Here's what you need to remember:</p>
+	
+		<ul>
+			<li>Methods called on jQuery selections are in 
+			the <code>$.fn</code> namespace, and automatically 
+			receive and return the selection as <code>this</code>.
+			</li>
+			
+			<li>Methods in the <code>$</code> namespace are 
+			generally utility-type methods, and do not 
+			work with selections; they are not automatically 
+			passed any arguments, and their return value will 
+			vary.
+			</li>
+		</ul>
+		
+	<p>There are a few cases where object methods and 
+	core methods have the same names, such as <code>$.each()</code> 
+	and <code>.each()</code>. In these cases, be extremely careful when reading 
+	the documentation that you are exploring the correct 
+	method.</p>
+	
+	<p>In this guide, if a method can be called on a jQuery 
+	selection, we'll refer to it just by its name: 
+	<code>.each()</code>. If it is a <a href="https://learn.jquery.com/using-jquery-core/utility-methods/" target="_blank" class="links">utility method</a> -- that 
+	is, a method that isn't called on a selection -- we'll 
+	refer to it explicitly as a method in the jQuery 
+	namespace: <code>$.each()</code>.</p>
+	</div>	
+		
+	<div id="document_ready" class="tab-content">
+		<h2>$(document).ready()</h2>
+		<p>A page can't be manipulated safely until the 
+		document is "ready." jQuery detects this state 
+		of readiness for you. Code included inside 
+		<code>$( document ).ready()</code> will only run 
+		once the page Document Object Model (DOM) is 
+		ready for JavaScript code to execute. Code 
+		included inside <code>$( window ).on( "load", function() { ... })</code> 
+		will run once the entire page (images or iframes), 
+		not just the DOM, is ready.</p>
+		
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="comment">//A $(document).ready() block.</span></code></div></div><div class="container"><div class="line"><code>$(document).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>   consol.log(<span class="string">"ready!"</span>);</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre></td></tr></tbody></table></div>
+
+<p>Experienced developers sometimes use the shorthand 
+<code>$()</code> for <code>$( document ).ready()</code>. 
+If you are writing code that people who aren't 
+experienced with jQuery may see, it's best to use the 
+long form.</p>
+		
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="comment">//Shorthand for $(document).ready()</span></code></div></div><div class="container"><div class="line"><code>$(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>   console.log(<span class="string">"ready!"</span>);</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre></td></tr></tbody></table></div>
+
+<p>You can also pass a named function to 
+<code>$( document ).ready()</code> instead of passing an
+ anonymous function.</p>
+		
+<div class="syntaxhighlighter javascript"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="string">// Passing a named function instead of an anonymous function.</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="keyword">function</span> <span class="title">readyFn</span> <span class="params">( jQuery )</span>{</code></div></div><div class="container"><div class="line"><code><span class="comment">    //Code to run when the document is ready.</span></code></div></div><div class="container"><div class="line"><code>}</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>$(document).ready(readyFn);</code></div></div><div class="container"><div class="line"><code>//or:</code></div></div><div class="container"><div class="line"><code>$( window ).on ( <span class="string">"load"</span>, readyFn );</code></div></div></pre></td></tr></tbody></table></div>
+
+<p>The example below shows <code>$( document ).ready()</code> 
+and <code>$( window ).on( "load" )</code> in action. 
+The code tries to load a website URL in an <code><span class="tag">&lt;</span>iframe></code> 
+and checks for both events:</p>
+
+<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>></span></code></div></div><div class="container"><div class="line"><code>   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span> =<span class="value">"https://code.jquery.com/jquery-1.9.1.min.js"</span>></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code>   <span class="tag">&lt;<span class="title">script</span>></span></code></div></div><div class="container"><div class=line"><code>   $(document).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>     console.log( <span class="string">"document loaded"</span> );</code></div></div><div class="container"><div class="line"><code>   });</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>   $( window ).on( <span class="string">"window loaded"</span> );</code></div></div><div class="container"><div class="line"><code>     console.log( <span class="string">"window loaded"</span> );</code></div></div><div class="container"><div class="line"><code>   });</code></div></div><div class="container"><div class="line"><code>   <span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/head</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>></span></code></div></div><div class="container"><div class="line"><code>   <span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">src</span> = <span class="value">"http://techcrunch.com"</span>></span><span class="tag">&lt;<span class="title">/iframe</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/body</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/html</span>></span></code></div></div></pre></td></tr></tbody></table></div>
+		
+	</div>	
+	
+	
+	<div id="avoid_conflict" class="tab-content">
+		
+		<h2>Avoiding Conflicts With Other Libraries</h2>
+		<p>The jQuery library and virtually all of its 
+		plugins are contained within the jQuery 
+		namespace. As a general rule, global objects 
+		are stored inside the <code>jQuery</code> namespace as well, 
+		so you shouldn't get a clash between jQuery and 
+		any other library (like prototype.js, MooTools, 
+		or YUI).</p>
+		
+		<p>That said, there is one caveat: by default, 
+		<em>jQuery uses <code>$</code> as a shortcut for <code>jQuery</code></em>. 
+		Thus, if you are using another JavaScript library 
+		that uses the <code>$</code> variable, you can run into conflicts 
+		with jQuery. In order to avoid these conflicts, you 
+		need to put jQuery in no-conflict mode immediately 
+		after it is loaded onto the page and before you 
+		attempt to use jQuery in your page.</p>
+		
+		<h3>Putting jQuery Into No-Conflict Mode</h3>
+		<p>When you put jQuery into no-conflict mode, 
+		you have the option of assigning a new variable 
+		name to replace the <code>$</code> alias.</p>
+		
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="comment"><span class="tag">&lt;</span>!-- Putting jQuery into no-conflict mode. --></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span> = <span class="value">"prototype.js"</span>></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span> = <span class="value">"jquery.js"</span>></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> $j = jQuery.noConflict();</code></div></div><div class="container"><div class="line"><code><span class="comment">// $j is now an alias to the jQuery function; creating the new alias is optional.</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>$j(document).ready(<span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>   $j(<span class="string">"div"</span>).hide();</code></div></div><div class="container"><div class="line"><code>});</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// The $ variable now has the prototype meaning, which is a shortcut for</span></code></div></div><div class="container"><div class="line"><code><span class="comment">// document.getElementById(). mainDiv below is a DOM element, not a jQuery object.</span></code></div></div><div class="contanier"><div class="line"><code>window.onload = <span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>   <span class="keyword">var</span> mainDiv = $( <span class="string">"main"</span> );</code></div></div><div class="container"><div class="line"><code>}</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>></span></code></div></div></pre></td></tr></tbody></table></div>
+		<p>In the code above, the <code>$</code> will 
+		revert back to its meaning in original library. 
+		You'll still be able to use the full function 
+		name jQuery as well as the new alias <code>$j</code>
+		in the rest of your application. The new alias can 
+		be named anything you'd like: <code>jq</code>, <code>$J</code>,  
+		<code>awesomeQuery</code>, etc.</p>
+	
+		<p>Finally, if you don't want to define another 
+		alternative to the full <code>jQuery</code> function 
+		name (you really like to use <code>$</code> and 
+		don't care about using the other library's <code>$</code> 
+		method), then there's still another approach you 
+		might try: simply add the <code>$</code> as an argument 
+		passed to your <code>jQuery( document ).ready()</code> 
+		function. This is most frequently used in the case 
+		where you still want the benefits of really concise 
+		jQuery code, but don't want to cause conflicts with 
+		other libraries.</p>
+		
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="comment"><span class="tag">&lt;</span>!-- Another way to put jQuery into no-conflict mode. --></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span> = <span class="value">"prototype.js"</span>></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span> = <span class="value">"jquery.js"</span>></span><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>jQuery.noConflict();</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>jQuery( document ).ready(<span class="keyword">function</span>( $ ){</code></div></div><div class="contanier"><div class="line"><code>    <span class="comment">// You can use the locally-scoped $ in here as an alias to jQuery.</span></code></div></div><div class="container"><div class="line"><code>    $( <span class="string">"div"</span> ).hide();</code></div></div><div class="container"><div class="line"><code>});</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// The $ variable in the global scope has the prototype.js meaning.</span></code></div></div><div class="container"><div class="line"><code>window.onload = <span class="keyword">function</span>(){</code></div></div><div class="container"><div class="line"><code>   <span class="keyword">var</span> mainDiv = $( <span class="string">"main"</span> );</code></div></div><div class="container"><div class="line"><code>}</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">/script</span>></span></code></div></div></pre></td></tr></tbody></table></div>
+		<p>This is probably the ideal solution for most 
+		of your code, considering that there'll be less 
+		code that you'll have to change in order to 
+		achieve complete compatibility.</p>
+		
+		<h3>Including jQuery Before Other Libraries</h3>
+		<p>The code snippets above rely on jQuery being 
+		loaded after prototype.js is loaded. If you 
+		include jQuery before other libraries, you may 
+		use <code>jQuery</code> when you do some work with jQuery, 
+		but the <code>$</code> will have the meaning defined in the 
+		other library. There is no need to relinquish 
+		the <code>$</code> alias by calling <code>jQuery.noConflict()</code>.</p>
+		
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="comment">&lt;!-- Loading jQuery before other libraries. --&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"prototype.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Use full jQuery function name to reference jQuery.</span></code></div></div><div class="container"><div class="line"><code>jQuery( document ).ready(<span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>    jQuery( <span class="string">"div"</span> ).hide();</code></div></div><div class="container"><div class="line"><code>});</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Use the $ variable as defined in prototype.js</span></code></div></div><div class="container"><div class="line"><code>window.onload = <span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>    <span class="keyword">var</span> mainDiv = $( <span class="string">"main"</span> );</code></div></div><div class="container"><div class="line"><code>};</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div></pre></td></tr></tbody></table></div>
+		
+		<h3>Summary of Ways to Reference the jQuery Function</h3>
+		<p>Here's a recap of ways you can reference the 
+		jQuery function when the presence of another 
+		library creates a conflict over the use of the 
+		<code>$</code> variable:</p>
+		<h4>Create a New Alias</h4>
+		<p>The <code>jQuery.noConflict()</code> method 
+		returns a reference to the jQuery function, 
+		so you can capture it in whatever variable 
+		
+		you'd like:</p>
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"prototype.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Give $ back to prototype.js; create new alias to jQuery.</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> $jq = jQuery.noConflict();</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div></pre></td></tr></tbody></table></div>
+		<h3>Use an Immediately Invoked Function Expression</h3>
+		<p>You can continue to use the standard <code>$</code> by wrapping your code in an immediately invoked function expression; this is also a standard pattern for jQuery plugin authoring, where the author cannot know whether another library will have taken over the <code>$</code>. See the <a href="https://learn.jquery.com/plugins/" class="links" target="_blank">Plugins</a> section for more information about writing plugins.</p>
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="comment">&lt;!-- Using the $ inside an immediately-invoked function expression. --&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"prototype.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>jQuery.noConflict();</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>(<span class="keyword">function</span>( $ ) {</code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Your jQuery code here, using the $</span></code></div></div><div class="container"><div class="line"><code>})( jQuery );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div></pre></td></tr></tbody></table></div>
+		<p>Note that if you use this technique, you will not be able to use prototype.js methods inside the immediately invoked function. <code>$</code> will be a reference to jQuery, not prototype.js.</p>
+		<h3>Use the Argument That's Passed to the <code>jQuery( document ).ready()</code> Function</h3>
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"prototype.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>jQuery(document).ready(<span class="keyword">function</span>( $ ) {</code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Your jQuery code here, using $ to refer to jQuery.</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div></pre></td></tr></tbody></table></div>
+		<p>Or using the more concise syntax for the DOM ready function:</p>
+		<div class="syntaxhighlighter xml"><table><tbody><tr><td class="code"><pre><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"prototype.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>jQuery(<span class="keyword">function</span>($){</code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Your jQuery code here, using the $</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div></pre></td></tr></tbody></table></div>
+	</div>
+		
+	</body>
+</html>
