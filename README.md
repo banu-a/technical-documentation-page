@@ -1,1 +1,1 @@
-# technical-documentation-page
+# Responsive Technical Documentation Page
